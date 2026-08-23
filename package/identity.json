@@ -1,13 +1,13 @@
 {
   "contractVersion": 1,
-  "status": "c4b2_consent_wire_preflight",
+  "status": "c4b3_response_containment",
   "id": "redcms.store-lite-wompi",
   "name": "RED-CMS Store Lite Wompi",
   "repository": "redcms-store-lite-wompi",
   "manifest": {
     "schemaVersion": 1,
     "type": "adapter",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "cmsCompatibility": ">=5.1 <6.0",
     "phpCompatibility": ">=8.2 <9.0",
     "requiredDependency": {

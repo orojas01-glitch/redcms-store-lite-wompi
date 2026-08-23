@@ -1,19 +1,20 @@
 # Colombia C2 Acceptance
 
-Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.2`
-retains the 34-assertion offline contract and the later C4B1/C4B2 pure
+Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.3`
+retains the 34-assertion offline contract and the later C4B1/C4B2/C4B3 pure
 preflights.
 
 ## Focused results
 
 - Offline provider contract: 34 assertions.
-- Current package, integrity, registrar, migrations, ten-file source parity,
-  exact current-core Wompi profile, and cleanup: 70 assertions.
+- Current package, integrity, registrar, migrations, eleven-file source parity,
+  exact current-core Wompi profile, and cleanup: 72 assertions.
 - C4B1 merchant-contract preflight: 29 assertions.
 - C4B2 presentation/consent/wire preflight: 49 assertions.
-- Current total: 182 assertions.
-- PHP lint: all ten source files, all ten package copies, package registrar,
-  and all four tests pass.
+- C4B3 create/lookup response containment: 48 assertions.
+- Current total: 232 assertions.
+- PHP lint: all eleven source files, all eleven package copies, package
+  registrar, and all five tests pass.
 
 ## Required evidence
 
@@ -28,7 +29,7 @@ preflights.
 - Dynamic signed-event properties, 25-hour retry-compatible timing, checksum,
   exact lookup agreement, final outcomes, replay, environment, and mismatch
   cases pass with mutation and payment application false.
-- Generic RED-CMS discovery verifies all fourteen declared payload hashes and no
+- Generic RED-CMS discovery verifies all fifteen declared payload hashes and no
   undeclared file.
 - Package/source copies are byte-identical.
 - The registrar observes only the declared adapter and refusing event route.
@@ -55,3 +56,5 @@ The C4B1 evidence and current non-effects are recorded separately in
 [`COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md`](COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md).
 The C4B2 evidence is in
 [`COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md`](COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md).
+The C4B3 evidence is in
+[`COLOMBIA-C4B3-RESPONSE-CONTAINMENT.md`](COLOMBIA-C4B3-RESPONSE-CONTAINMENT.md).
