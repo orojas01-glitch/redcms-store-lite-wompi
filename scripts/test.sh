@@ -21,6 +21,7 @@ for file in \
     "$PROJECT_DIR/src/WompiContractConsentEvidence.php" \
     "$PROJECT_DIR/src/WompiNequiTransientWireRequestBuilder.php" \
     "$PROJECT_DIR/src/WompiTransactionResponseContainment.php" \
+    "$PROJECT_DIR/src/WompiNoContactAttemptContract.php" \
     "$PROJECT_DIR/src/WompiNequiOfflineAdapter.php" \
     "$PROJECT_DIR/package/addon.php" \
     "$PROJECT_DIR/package/WompiNequiRequestPlanner.php" \
@@ -33,12 +34,14 @@ for file in \
     "$PROJECT_DIR/package/WompiContractConsentEvidence.php" \
     "$PROJECT_DIR/package/WompiNequiTransientWireRequestBuilder.php" \
     "$PROJECT_DIR/package/WompiTransactionResponseContainment.php" \
+    "$PROJECT_DIR/package/WompiNoContactAttemptContract.php" \
     "$PROJECT_DIR/package/WompiNequiOfflineAdapter.php" \
     "$PROJECT_DIR/tests/c2-offline-contract-self-test.php" \
     "$PROJECT_DIR/tests/c2-package-self-test.php" \
     "$PROJECT_DIR/tests/c4b1-merchant-contract-preflight-self-test.php" \
     "$PROJECT_DIR/tests/c4b2-consent-wire-preflight-self-test.php" \
-    "$PROJECT_DIR/tests/c4b3-response-containment-self-test.php"
+    "$PROJECT_DIR/tests/c4b3-response-containment-self-test.php" \
+    "$PROJECT_DIR/tests/c4b4a-no-contact-attempt-self-test.php"
 do
     "$PHP_CLI" -l "$file"
 done
@@ -48,3 +51,4 @@ done
 "$PHP_CLI" "$PROJECT_DIR/tests/c4b1-merchant-contract-preflight-self-test.php"
 "$PHP_CLI" "$PROJECT_DIR/tests/c4b2-consent-wire-preflight-self-test.php"
 "$PHP_CLI" "$PROJECT_DIR/tests/c4b3-response-containment-self-test.php"
+"$PHP_CLI" "$PROJECT_DIR/tests/c4b4a-no-contact-attempt-self-test.php"

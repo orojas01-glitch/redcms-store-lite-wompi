@@ -79,8 +79,11 @@ one-attempt state before any order mutation can become eligible.
 
 ## Next boundary
 
-Package `0.1.3` exposes no new adapter operation or transport. A separate core
-adoption gate must pin its merged commit and rerun exact disposable lifecycle
-proofs. C4B4 owns one-attempt execution authority/claim/state and must remain
-no-contact until its pure and disposable proofs pass. C4C remains the first
-separately owner-authorized account/credential/read-only provider-contact gate.
+Package `0.1.3` exposed no new adapter operation or transport and was adopted
+by RED-CMS core after its disposable lifecycle proofs. C4B4A now owns the pure
+no-contact authorization, claim-preparation, and state projection contract in
+package `0.1.4`; see
+[`COLOMBIA-C4B4A-NO-CONTACT-ATTEMPT.md`](COLOMBIA-C4B4A-NO-CONTACT-ATTEMPT.md).
+C4B4B must add durable claim/replay protection before any no-contact execution
+runner. C4C remains the first separately owner-authorized account/credential/
+read-only provider-contact gate.

@@ -13,6 +13,7 @@ require_once __DIR__ . '/WompiContractConsentPresentation.php';
 require_once __DIR__ . '/WompiContractConsentEvidence.php';
 require_once __DIR__ . '/WompiNequiTransientWireRequestBuilder.php';
 require_once __DIR__ . '/WompiTransactionResponseContainment.php';
+require_once __DIR__ . '/WompiNoContactAttemptContract.php';
 require_once __DIR__ . '/WompiNequiOfflineAdapter.php';
 
 return static function ($registry): void {
