@@ -1,7 +1,7 @@
 # Colombia C2 Offline Wompi Package Skeleton
 
 Status: historical C2 baseline complete at package version `0.1.0`. Package
-`0.1.1` preserves this offline skeleton and adds C4B1 pure contracts. No
+`0.1.2` preserves this offline skeleton and the C4B1/C4B2 pure contracts. No
 external provider or RED-CMS installation effect occurred.
 
 ## Fixed scope
@@ -75,7 +75,7 @@ returns fixed false-effect facts. Every provider operation remains unsupported.
 
 That historical refusal was closed by C3A's exact
 `store_lite_wompi_adapter_v1` profile while preserving the Stripe profile.
-Package `0.1.1` now verifies eleven payload hashes against that current closed
+Package `0.1.2` now verifies fourteen payload hashes against that current closed
 Wompi profile; this does not execute or activate the package.
 
 ## C3 boundary

@@ -114,12 +114,12 @@ try {
     );
     red_wompi_c2_package_assert(
         ($package['id'] ?? null) === $packageId
-            && ($package['manifest']['version'] ?? null) === '0.1.1'
+            && ($package['manifest']['version'] ?? null) === '0.1.2'
             && ($package['manifest']['type'] ?? null) === 'adapter'
-            && ($package['integrity']['declaredFiles'] ?? null) === 11
-            && ($package['integrity']['verifiedFiles'] ?? null) === 11
+            && ($package['integrity']['declaredFiles'] ?? null) === 14
+            && ($package['integrity']['verifiedFiles'] ?? null) === 14
             && ($package['integrity']['inventoryComplete'] ?? null) === true,
-        'identity and eleven-file integrity inventory are exact'
+        'identity and fourteen-file integrity inventory are exact'
     );
 
     $manifest = $package['manifest'];
@@ -201,6 +201,9 @@ try {
         'WompiSandboxEventVerifier.php',
         'WompiMerchantContractRequestPlanner.php',
         'WompiMerchantContractResponseGate.php',
+        'WompiContractConsentPresentation.php',
+        'WompiContractConsentEvidence.php',
+        'WompiNequiTransientWireRequestBuilder.php',
         'WompiNequiOfflineAdapter.php',
     ] as $file) {
         red_wompi_c2_package_assert(
@@ -243,9 +246,12 @@ try {
             && ($probe['success'] ?? null) === true
             && ($probe['reason'] ?? null) === 'completed'
             && ($probe['data']['contractVersion'] ?? null)
-                === 'colombia-c4b1-v1'
-            && ($probe['data']['packageVersion'] ?? null) === '0.1.1'
+                === 'colombia-c4b2-v1'
+            && ($probe['data']['packageVersion'] ?? null) === '0.1.2'
             && ($probe['data']['merchantContractPreflightReady'] ?? null)
+                === true
+            && ($probe['data']['twoContractConsentReady'] ?? null) === true
+            && ($probe['data']['transientWirePreflightReady'] ?? null)
                 === true
             && ($probe['data']['transportReady'] ?? null) === false
             && ($probe['data']['secretResolution'] ?? null) === false

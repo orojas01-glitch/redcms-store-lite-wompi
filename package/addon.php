@@ -9,6 +9,9 @@ require_once __DIR__ . '/WompiNequiSealedTransportDouble.php';
 require_once __DIR__ . '/WompiSandboxEventVerifier.php';
 require_once __DIR__ . '/WompiMerchantContractRequestPlanner.php';
 require_once __DIR__ . '/WompiMerchantContractResponseGate.php';
+require_once __DIR__ . '/WompiContractConsentPresentation.php';
+require_once __DIR__ . '/WompiContractConsentEvidence.php';
+require_once __DIR__ . '/WompiNequiTransientWireRequestBuilder.php';
 require_once __DIR__ . '/WompiNequiOfflineAdapter.php';
 
 return static function ($registry): void {
