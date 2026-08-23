@@ -1,0 +1,136 @@
+{
+  "$schema": "https://red-sphere.com/schemas/addon-manifest-v1.json",
+  "schemaVersion": 1,
+  "id": "redcms.store-lite-wompi",
+  "name": "RED-CMS Store Lite Wompi",
+  "description": "Separately distributed Wompi adapter for RED-CMS Store Lite, initially limited to Nequi and COP.",
+  "version": "0.1.0",
+  "type": "adapter",
+  "compatibility": {
+    "cms": ">=5.1 <6.0",
+    "php": ">=8.2 <9.0"
+  },
+  "provides": {
+    "components": [],
+    "services": [],
+    "adminTools": [],
+    "adapters": [
+      "redcms.store-lite-wompi/checkout"
+    ]
+  },
+  "dependencies": {
+    "required": [
+      {
+        "id": "redcms.store-lite",
+        "version": ">=0.1.35 <1.0"
+      }
+    ],
+    "optional": []
+  },
+  "permissions": [],
+  "settings": [
+    {
+      "key": "wompi.public-key",
+      "label": "Wompi public key",
+      "type": "text",
+      "secret": false,
+      "default": null
+    },
+    {
+      "key": "wompi.private-key",
+      "label": "Wompi private key reference",
+      "type": "secret-reference",
+      "secret": true
+    },
+    {
+      "key": "wompi.integrity-key",
+      "label": "Wompi integrity key reference",
+      "type": "secret-reference",
+      "secret": true
+    },
+    {
+      "key": "wompi.event-secret",
+      "label": "Wompi event secret reference",
+      "type": "secret-reference",
+      "secret": true
+    }
+  ],
+  "migrations": [
+    {
+      "id": "2026-08-23-wompi-payment-attempts",
+      "path": "migrations/2026-08-23-create-payment-attempts.sql",
+      "sha256": "20e1db5740bccbfe502880d578b35be38690f180a86226a50bd01222e7378ece"
+    },
+    {
+      "id": "2026-08-23-wompi-event-receipts",
+      "path": "migrations/2026-08-23-create-event-receipts.sql",
+      "sha256": "7819b4e7894a09c0f6e7ca0534a5ba348a610096100e71eb99ab7a7728e47b4a"
+    }
+  ],
+  "routes": [
+    {
+      "id": "redcms.store-lite-wompi/provider-events",
+      "scope": "public",
+      "path": "/addons/redcms/store-lite-wompi/provider-events",
+      "methods": [
+        "POST"
+      ],
+      "authentication": "server-signature",
+      "csrf": "not-applicable"
+    }
+  ],
+  "publicMutationContracts": [],
+  "jobs": [],
+  "outboundHosts": [
+    "sandbox.wompi.co"
+  ],
+  "assets": {
+    "public": [],
+    "admin": []
+  },
+  "integrity": {
+    "entrypoint": "addon.php",
+    "files": [
+      {
+        "path": "addon.php",
+        "sha256": "b9e17f7b2d2606fb822ef1bebf932c557d067c4b54b2f7a98c43ecb76a6cdbfe"
+      },
+      {
+        "path": "WompiNequiRequestPlanner.php",
+        "sha256": "b1b87716c4766cfcb77fd7b34a24afa1ccef51140adddc64aaa503a79c332e85"
+      },
+      {
+        "path": "WompiNequiResponseGate.php",
+        "sha256": "3a97b25f03dd2de74e295db54a24f94fd272c0b36cd06d068af99f9e4e8e7a59"
+      },
+      {
+        "path": "WompiNequiSealedTransportDouble.php",
+        "sha256": "8bfc454599edfc6c0a0ba3fddee24742aa0d8180e36c55176da9c87b45a824af"
+      },
+      {
+        "path": "WompiSandboxEventVerifier.php",
+        "sha256": "42dad4cf96e312c15a2543e4db34854aac25c430d43099b85ba739e1595b51ed"
+      },
+      {
+        "path": "WompiNequiOfflineAdapter.php",
+        "sha256": "a35f6ad9dc0a11c574de49ce72d4e3fa01f48bfd954eb8d8d6285b77004a9c4d"
+      },
+      {
+        "path": "identity.json",
+        "sha256": "41c175558755435ea939971c638791524642f31af81e1864ef9986ac678e19bc"
+      },
+      {
+        "path": "migrations/2026-08-23-create-payment-attempts.sql",
+        "sha256": "20e1db5740bccbfe502880d578b35be38690f180a86226a50bd01222e7378ece"
+      },
+      {
+        "path": "migrations/2026-08-23-create-event-receipts.sql",
+        "sha256": "7819b4e7894a09c0f6e7ca0534a5ba348a610096100e71eb99ab7a7728e47b4a"
+      }
+    ]
+  },
+  "uninstall": {
+    "defaultDataAction": "retain",
+    "allowExplicitPurge": false
+  }
+}

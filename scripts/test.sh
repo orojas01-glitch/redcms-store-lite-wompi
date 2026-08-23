@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+PHP_CLI=${PHP_CLI:-php}
+
+if ! command -v "$PHP_CLI" >/dev/null 2>&1 && [ ! -x "$PHP_CLI" ]; then
+    echo "PHP CLI not found or not executable: $PHP_CLI" >&2
+    exit 1
+fi
+
+for file in \
+    "$PROJECT_DIR/src/WompiNequiRequestPlanner.php" \
+    "$PROJECT_DIR/src/WompiNequiResponseGate.php" \
+    "$PROJECT_DIR/src/WompiNequiSealedTransportDouble.php" \
+    "$PROJECT_DIR/src/WompiSandboxEventVerifier.php" \
+    "$PROJECT_DIR/src/WompiNequiOfflineAdapter.php" \
+    "$PROJECT_DIR/package/addon.php" \
+    "$PROJECT_DIR/package/WompiNequiRequestPlanner.php" \
+    "$PROJECT_DIR/package/WompiNequiResponseGate.php" \
+    "$PROJECT_DIR/package/WompiNequiSealedTransportDouble.php" \
+    "$PROJECT_DIR/package/WompiSandboxEventVerifier.php" \
+    "$PROJECT_DIR/package/WompiNequiOfflineAdapter.php" \
+    "$PROJECT_DIR/tests/c2-offline-contract-self-test.php" \
+    "$PROJECT_DIR/tests/c2-package-self-test.php"
+do
+    "$PHP_CLI" -l "$file"
+done
+
+"$PHP_CLI" "$PROJECT_DIR/tests/c2-offline-contract-self-test.php"
+"$PHP_CLI" "$PROJECT_DIR/tests/c2-package-self-test.php"
