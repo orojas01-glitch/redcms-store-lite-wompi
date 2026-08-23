@@ -1,11 +1,11 @@
 # RED-CMS Store Lite Wompi Adapter
 
 This repository is the separately distributed Wompi payment adapter candidate
-for RED-CMS Store Lite. Version `0.1.1` completes Colombia C4B1 as a
-credential-free, no-contact merchant-contract preflight while preserving the
-offline C2 transaction/event skeleton. Its initial commercial contract is only
-one-time Nequi payments in `COP` through the provider-neutral
-`out_of_band_confirmation` initiation mode.
+for RED-CMS Store Lite. Version `0.1.2` completes Colombia C4B2 as a
+credential-free, no-contact two-contract consent and transient wire/signature
+preflight while preserving the offline C2/C4B1 contracts. Its initial
+commercial contract is only one-time Nequi payments in `COP` through the
+provider-neutral `out_of_band_confirmation` initiation mode.
 
 The package is not installed, enabled, or connected to RED-CMS runtime. It has
 no Wompi account, key value, customer data, network client, executable provider
@@ -33,28 +33,35 @@ demo activation, or deployment.
   `GET /v1/merchants/{public_key}` while receiving only public-key availability
   and hash evidence;
 - one strict synthetic merchant-response gate that returns exactly two HTTPS
-  contract links plus token/evidence hashes, never raw acceptance tokens; and
+  contract links plus token/evidence hashes, never raw acceptance tokens;
+- one exact two-link/two-required-control presentation model with no HTML,
+  token, browser, or consent side effect;
+- one 15-minute explicit two-contract consent evidence boundary bound to order,
+  subject, contract/token hashes, and nonce;
+- one transient Sandbox-only Nequi wire/signature preflight that constructs the
+  exact body/header internally, hashes it, discards it, and returns no raw
+  personal, token, credential, signature, or wire value; and
 - one registration-only typed adapter exposing only `contract.probe` while
   every provider operation returns `provider_transport_disabled`.
 
 ## Current core compatibility
 
 Generic RED-CMS discovery and contained runtime registration accept the exact
-package and all eleven integrity files. The exact current Wompi core profile
+package and all fourteen integrity files. The exact current Wompi core profile
 accepts the manifest as `store_lite_wompi_adapter_v1` while package execution,
 secret resolution, network access, route exposure, and activation remain
 false. This replaces the historical C2 assertion that the then-Stripe-only
 profile refused Wompi; C3A intentionally superseded that expectation.
 
-The C4B1 classes are source-level pure contracts, not adapter operations. They
-do not construct a final path, resolve the public key or any secret, open a
-connection, persist a provider response, present a contract, record customer
-consent, or create a transaction. C4B2 and later gates remain separately
-reviewed.
+The C4B1/C4B2 classes are source-level pure contracts, not adapter operations.
+They do not resolve a public key or secret, open a connection, return/persist a
+wire request, or create a transaction. The C4B2 preflight constructs one exact
+synthetic body/header/signature only inside a pure call, then returns domain-
+separated and double-hashed evidence with every external/business effect false.
 
 RED-CMS core's published-package C3A fixture and disposable lifecycle scripts
-remain pinned to package `0.1.0`/commit `e17a371`. After `0.1.1` is published,
-a separate core adoption gate must update only those exact package identity/
+adopted package `0.1.1` at core commit `fcea7d3`. After `0.1.2` is published, a
+separate core adoption gate must update only those exact package identity/
 integrity pins and rerun the clean disposable proofs. This package change does
 not silently update or install any RED-CMS client.
 
@@ -64,10 +71,13 @@ not silently update or install any RED-CMS client.
 PHP_CLI=/path/to/php RED_CMS_CORE=/path/to/redcms scripts/test.sh
 ```
 
-The current focused suite passes 34 C2 provider-contract assertions, 64
-package/current-core assertions, and 29 C4B1 merchant-contract assertions. See
+The current focused suite passes 34 C2 provider-contract assertions, 70
+package/current-core assertions, 29 C4B1 merchant-contract assertions, and 49
+C4B2 consent/wire assertions. See
 [`docs/COLOMBIA-C2-PACKAGE-SKELETON.md`](docs/COLOMBIA-C2-PACKAGE-SKELETON.md)
 and
 [`docs/COLOMBIA-C2-ACCEPTANCE.md`](docs/COLOMBIA-C2-ACCEPTANCE.md)
 and
-[`docs/COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md`](docs/COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md).
+[`docs/COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md`](docs/COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md)
+and
+[`docs/COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md`](docs/COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md).

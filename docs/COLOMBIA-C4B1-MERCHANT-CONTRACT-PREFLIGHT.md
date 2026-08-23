@@ -73,17 +73,12 @@ absent from the returned projection. The class does not retain them.
 
 The current core profile accepts this unchanged manifest surface as
 `store_lite_wompi_adapter_v1`, which the 64-assertion package suite proves.
-Core's published-package C3A fixture and disposable lifecycle scripts remain
-intentionally pinned to package `0.1.0` at `e17a371`; they must not silently
-follow an external repository branch. After `0.1.1` publication, a separate
-core adoption gate must update those exact version/commit/integrity pins and
-rerun its focused and disposable proofs. No client installation is updated by
-this package gate.
+Core adoption completed at RED-CMS commit `fcea7d3`, pinning package `0.1.1` at
+`7e4f8cb` and rerunning its exact focused/disposable proofs. Package `0.1.2`
+remains a separate later adoption and does not silently update a client.
 
 ## Next boundary
 
-C4B1 does not expose a new typed adapter operation or transport. C4B2 may add
-only explicit two-contract presentation/consent evidence and a transient
-server-side integrity/wire-request builder behind separately reviewed pure
-contracts and synthetic tests. It must not authorize owner credential entry,
-provider API contact, a Wompi transaction, public event ingress, or deployment.
+C4B1 exposes no typed adapter operation or transport. C4B2 is recorded in
+[`COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md`](COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md)
+and retains the same provider-contact boundary.

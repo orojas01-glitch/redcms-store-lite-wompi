@@ -1,18 +1,19 @@
 # Colombia C2 Acceptance
 
-Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.1`
-retains the 34-assertion offline contract and replaces the superseded current-
-core refusal assertion through C4B1.
+Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.2`
+retains the 34-assertion offline contract and the later C4B1/C4B2 pure
+preflights.
 
 ## Focused results
 
 - Offline provider contract: 34 assertions.
-- Current package, integrity, registrar, migrations, seven-file source parity,
-  exact current-core Wompi profile, and cleanup: 64 assertions.
+- Current package, integrity, registrar, migrations, ten-file source parity,
+  exact current-core Wompi profile, and cleanup: 70 assertions.
 - C4B1 merchant-contract preflight: 29 assertions.
-- Current total: 127 assertions.
-- PHP lint: all seven source files, all seven package copies, package
-  registrar, and all three tests pass.
+- C4B2 presentation/consent/wire preflight: 49 assertions.
+- Current total: 182 assertions.
+- PHP lint: all ten source files, all ten package copies, package registrar,
+  and all four tests pass.
 
 ## Required evidence
 
@@ -27,7 +28,7 @@ core refusal assertion through C4B1.
 - Dynamic signed-event properties, 25-hour retry-compatible timing, checksum,
   exact lookup agreement, final outcomes, replay, environment, and mismatch
   cases pass with mutation and payment application false.
-- Generic RED-CMS discovery verifies all eleven declared payload hashes and no
+- Generic RED-CMS discovery verifies all fourteen declared payload hashes and no
   undeclared file.
 - Package/source copies are byte-identical.
 - The registrar observes only the declared adapter and refusing event route.
@@ -52,3 +53,5 @@ Lite mutation, hosted-demo change, client data, or deployment is created by C2.
 
 The C4B1 evidence and current non-effects are recorded separately in
 [`COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md`](COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md).
+The C4B2 evidence is in
+[`COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md`](COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md).
