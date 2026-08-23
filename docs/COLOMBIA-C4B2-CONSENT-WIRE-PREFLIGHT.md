@@ -88,9 +88,10 @@ secret are not returned or persisted.
 
 ## Next boundary
 
-Package `0.1.2` exposes no new adapter operation or transport. A separate core
-adoption gate must pin its merged commit and rerun exact disposable lifecycle
-proofs. Later C4B gates own contained transaction-create/lookup projections,
-one-attempt authorization/claim/state, CLI confirmation, transport doubles,
-and no-contact rehearsals. C4C remains the first separately owner-authorized
-account/credential/read-only provider-contact gate.
+Package `0.1.2` exposed no new adapter operation or transport and was adopted by
+RED-CMS core after its disposable lifecycle proofs. C4B3 now owns the contained
+transaction-create/lookup projections in package `0.1.3`; see
+[`COLOMBIA-C4B3-RESPONSE-CONTAINMENT.md`](COLOMBIA-C4B3-RESPONSE-CONTAINMENT.md).
+Later C4B gates own one-attempt authorization/claim/state, CLI confirmation,
+transport doubles, and no-contact rehearsals. C4C remains the first separately
+owner-authorized account/credential/read-only provider-contact gate.
