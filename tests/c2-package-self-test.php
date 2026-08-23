@@ -114,12 +114,12 @@ try {
     );
     red_wompi_c2_package_assert(
         ($package['id'] ?? null) === $packageId
-            && ($package['manifest']['version'] ?? null) === '0.1.0'
+            && ($package['manifest']['version'] ?? null) === '0.1.1'
             && ($package['manifest']['type'] ?? null) === 'adapter'
-            && ($package['integrity']['declaredFiles'] ?? null) === 9
-            && ($package['integrity']['verifiedFiles'] ?? null) === 9
+            && ($package['integrity']['declaredFiles'] ?? null) === 11
+            && ($package['integrity']['verifiedFiles'] ?? null) === 11
             && ($package['integrity']['inventoryComplete'] ?? null) === true,
-        'identity and nine-file integrity inventory are exact'
+        'identity and eleven-file integrity inventory are exact'
     );
 
     $manifest = $package['manifest'];
@@ -199,6 +199,8 @@ try {
         'WompiNequiResponseGate.php',
         'WompiNequiSealedTransportDouble.php',
         'WompiSandboxEventVerifier.php',
+        'WompiMerchantContractRequestPlanner.php',
+        'WompiMerchantContractResponseGate.php',
         'WompiNequiOfflineAdapter.php',
     ] as $file) {
         red_wompi_c2_package_assert(
@@ -241,7 +243,10 @@ try {
             && ($probe['success'] ?? null) === true
             && ($probe['reason'] ?? null) === 'completed'
             && ($probe['data']['contractVersion'] ?? null)
-                === 'colombia-c1-v1'
+                === 'colombia-c4b1-v1'
+            && ($probe['data']['packageVersion'] ?? null) === '0.1.1'
+            && ($probe['data']['merchantContractPreflightReady'] ?? null)
+                === true
             && ($probe['data']['transportReady'] ?? null) === false
             && ($probe['data']['secretResolution'] ?? null) === false
             && ($probe['data']['networkAccess'] ?? null) === false
@@ -283,17 +288,19 @@ try {
         'declared provider-event route is a non-operational refusal'
     );
 
-    $stripeProfile = red_addon_payment_adapter_profile($manifest);
+    $wompiProfile = red_addon_payment_adapter_profile($manifest);
     red_wompi_c2_package_assert(
-        !$stripeProfile['valid']
-            && !$stripeProfile['contractReady']
-            && $stripeProfile['profileId']
-                === 'store_lite_stripe_checkout_adapter_v1'
-            && $stripeProfile['errors'] === [
-                'outbound_host_invalid',
-                'setting_contract_invalid',
-            ],
-        'current Stripe-only profile refuses Wompi and cannot claim C3 readiness'
+        red_addon_payment_adapter_profile_is_valid($wompiProfile)
+            && $wompiProfile['profileId']
+                === 'store_lite_wompi_adapter_v1'
+            && $wompiProfile['contractReady'] === true
+            && $wompiProfile['activationSupported'] === false
+            && $wompiProfile['packageExecution'] === false
+            && $wompiProfile['secretResolution'] === false
+            && $wompiProfile['networkAccess'] === false
+            && $wompiProfile['routeExposure'] === false
+            && $wompiProfile['errors'] === [],
+        'current exact core profile accepts Wompi without executing it'
     );
 
     $attemptSql = file_get_contents(

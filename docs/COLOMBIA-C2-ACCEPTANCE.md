@@ -1,15 +1,18 @@
 # Colombia C2 Acceptance
 
-Status: passed locally.
+Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.1`
+retains the 34-assertion offline contract and replaces the superseded current-
+core refusal assertion through C4B1.
 
 ## Focused results
 
 - Offline provider contract: 34 assertions.
-- Generic package, integrity, registrar, migrations, source parity, current-
-  core refusal, and cleanup: 60 assertions.
-- Total: 94 assertions.
-- PHP lint: all five source files, all five package copies, package registrar,
-  and both tests pass.
+- Current package, integrity, registrar, migrations, seven-file source parity,
+  exact current-core Wompi profile, and cleanup: 64 assertions.
+- C4B1 merchant-contract preflight: 29 assertions.
+- Current total: 127 assertions.
+- PHP lint: all seven source files, all seven package copies, package
+  registrar, and all three tests pass.
 
 ## Required evidence
 
@@ -24,14 +27,15 @@ Status: passed locally.
 - Dynamic signed-event properties, 25-hour retry-compatible timing, checksum,
   exact lookup agreement, final outcomes, replay, environment, and mismatch
   cases pass with mutation and payment application false.
-- Generic RED-CMS discovery verifies all nine declared payload hashes and no
+- Generic RED-CMS discovery verifies all eleven declared payload hashes and no
   undeclared file.
 - Package/source copies are byte-identical.
 - The registrar observes only the declared adapter and refusing event route.
 - `contract.probe` returns fixed non-secret false-effect facts; provider
   operation returns `provider_transport_disabled`.
-- Current Stripe-only payment-profile validation refuses the package with only
-  `outbound_host_invalid` and `setting_contract_invalid`.
+- Current exact payment-profile validation accepts the package only as
+  `store_lite_wompi_adapter_v1`, with execution, secret, network, activation,
+  and route effects false.
 - Both migrations are InnoDB evidence tables and contain no personal,
   credential, raw-event, body/header, or checkout-URL columns.
 - Package source contains no database, request-global, credential-shaped,
@@ -45,3 +49,6 @@ installation, migration execution, enablement, runtime publication, route
 exposure, real setting, secret value, provider account, DNS, TLS, HTTP, Wompi
 transaction, Nequi notification, payment, webhook ingress, browser flow, Store
 Lite mutation, hosted-demo change, client data, or deployment is created by C2.
+
+The C4B1 evidence and current non-effects are recorded separately in
+[`COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md`](COLOMBIA-C4B1-MERCHANT-CONTRACT-PREFLIGHT.md).

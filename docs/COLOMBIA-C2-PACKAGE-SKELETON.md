@@ -1,7 +1,8 @@
 # Colombia C2 Offline Wompi Package Skeleton
 
-Status: complete locally at package version `0.1.0`; publication review is
-pending. No external provider or RED-CMS installation effect occurred.
+Status: historical C2 baseline complete at package version `0.1.0`. Package
+`0.1.1` preserves this offline skeleton and adds C4B1 pure contracts. No
+external provider or RED-CMS installation effect occurred.
 
 ## Fixed scope
 
@@ -67,16 +68,15 @@ installed, or executed. C3 owns fresh disposable-database migration proof.
 
 ## Core boundary discovered
 
-Generic manifest discovery validates version `0.1.0`, all nine payload hashes,
+Generic manifest discovery validated version `0.1.0`, its nine payload hashes,
 the exact dependency/settings/migrations/route/host surfaces, and the contained
 registrar. The typed `contract.probe` runs only in an isolated CLI test and
 returns fixed false-effect facts. Every provider operation remains unsupported.
 
-The current core payment-adapter profile remains
-`store_lite_stripe_checkout_adapter_v1`; it requires two secret settings and
-outbound host `api.stripe.com`. It therefore refuses Wompi exactly. C3 must add
-a provider-neutral or separately closed Wompi profile while preserving every
-existing Stripe assertion and refusal.
+That historical refusal was closed by C3A's exact
+`store_lite_wompi_adapter_v1` profile while preserving the Stripe profile.
+Package `0.1.1` now verifies eleven payload hashes against that current closed
+Wompi profile; this does not execute or activate the package.
 
 ## C3 boundary
 
