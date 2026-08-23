@@ -1,20 +1,21 @@
 # Colombia C2 Acceptance
 
-Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.3`
-retains the 34-assertion offline contract and the later C4B1/C4B2/C4B3 pure
+Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.4`
+retains the 34-assertion offline contract and the later C4B1/C4B2/C4B3/C4B4A pure
 preflights.
 
 ## Focused results
 
 - Offline provider contract: 34 assertions.
-- Current package, integrity, registrar, migrations, eleven-file source parity,
-  exact current-core Wompi profile, and cleanup: 72 assertions.
+- Current package, integrity, registrar, migrations, twelve-file source parity,
+  exact current-core Wompi profile, and cleanup: 74 assertions.
 - C4B1 merchant-contract preflight: 29 assertions.
 - C4B2 presentation/consent/wire preflight: 49 assertions.
 - C4B3 create/lookup response containment: 48 assertions.
-- Current total: 232 assertions.
-- PHP lint: all eleven source files, all eleven package copies, package
-  registrar, and all five tests pass.
+- C4B4A no-contact attempt contract: 52 assertions.
+- Current total: 286 assertions.
+- PHP lint: all twelve source files, all twelve package copies, package
+  registrar, and all six tests pass.
 
 ## Required evidence
 
@@ -29,7 +30,7 @@ preflights.
 - Dynamic signed-event properties, 25-hour retry-compatible timing, checksum,
   exact lookup agreement, final outcomes, replay, environment, and mismatch
   cases pass with mutation and payment application false.
-- Generic RED-CMS discovery verifies all fifteen declared payload hashes and no
+- Generic RED-CMS discovery verifies all sixteen declared payload hashes and no
   undeclared file.
 - Package/source copies are byte-identical.
 - The registrar observes only the declared adapter and refusing event route.
@@ -58,3 +59,5 @@ The C4B2 evidence is in
 [`COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md`](COLOMBIA-C4B2-CONSENT-WIRE-PREFLIGHT.md).
 The C4B3 evidence is in
 [`COLOMBIA-C4B3-RESPONSE-CONTAINMENT.md`](COLOMBIA-C4B3-RESPONSE-CONTAINMENT.md).
+The C4B4A evidence is in
+[`COLOMBIA-C4B4A-NO-CONTACT-ATTEMPT.md`](COLOMBIA-C4B4A-NO-CONTACT-ATTEMPT.md).
