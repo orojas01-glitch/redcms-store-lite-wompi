@@ -1,13 +1,13 @@
 {
   "contractVersion": 1,
-  "status": "c4b4a_no_contact_attempt_contract",
+  "status": "c4c1_read_only_merchant_transport",
   "id": "redcms.store-lite-wompi",
   "name": "RED-CMS Store Lite Wompi",
   "repository": "redcms-store-lite-wompi",
   "manifest": {
     "schemaVersion": 1,
     "type": "adapter",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "cmsCompatibility": ">=5.1 <6.0",
     "phpCompatibility": ">=8.2 <9.0",
     "requiredDependency": {
@@ -15,7 +15,8 @@
       "version": ">=0.1.35 <1.0"
     },
     "adapterId": "redcms.store-lite-wompi/checkout",
-    "outboundHost": "sandbox.wompi.co"
+    "outboundHost": "sandbox.wompi.co",
+    "readOnlyOperation": "merchant.acceptance-contracts.retrieve-sandbox"
   },
   "exclusions": [
     "installation",
@@ -26,12 +27,9 @@
     "secret-resolution",
     "wire-request-return",
     "wire-request-persistence",
-    "transport-execution",
     "provider-sdk",
-    "dns",
-    "tls",
-    "http",
-    "wompi-account-access",
+    "wompi-dashboard-access",
+    "production-provider-contact",
     "wompi-transaction",
     "nequi-notification",
     "payment",
