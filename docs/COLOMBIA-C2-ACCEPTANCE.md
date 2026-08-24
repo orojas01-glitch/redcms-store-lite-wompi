@@ -1,6 +1,6 @@
 # Colombia C2 Acceptance
 
-Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.4`
+Status: historical C2 baseline passed at package `0.1.0`. Version `0.1.5`
 retains the 34-assertion offline contract and the later C4B1/C4B2/C4B3/C4B4A pure
 preflights.
 
@@ -14,7 +14,7 @@ preflights.
 - C4B3 create/lookup response containment: 48 assertions.
 - C4B4A no-contact attempt contract: 52 assertions.
 - Current total: 286 assertions.
-- PHP lint: all twelve source files, all twelve package copies, package
+- PHP lint: all fifteen source files, all fifteen package copies, package
   registrar, and all six tests pass.
 
 ## Required evidence
@@ -30,7 +30,7 @@ preflights.
 - Dynamic signed-event properties, 25-hour retry-compatible timing, checksum,
   exact lookup agreement, final outcomes, replay, environment, and mismatch
   cases pass with mutation and payment application false.
-- Generic RED-CMS discovery verifies all sixteen declared payload hashes and no
+- Generic RED-CMS discovery verifies all nineteen declared payload hashes and no
   undeclared file.
 - Package/source copies are byte-identical.
 - The registrar observes only the declared adapter and refusing event route.

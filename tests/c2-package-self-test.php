@@ -114,12 +114,12 @@ try {
     );
     red_wompi_c2_package_assert(
         ($package['id'] ?? null) === $packageId
-            && ($package['manifest']['version'] ?? null) === '0.1.4'
+            && ($package['manifest']['version'] ?? null) === '0.1.5'
             && ($package['manifest']['type'] ?? null) === 'adapter'
-            && ($package['integrity']['declaredFiles'] ?? null) === 16
-            && ($package['integrity']['verifiedFiles'] ?? null) === 16
+            && ($package['integrity']['declaredFiles'] ?? null) === 19
+            && ($package['integrity']['verifiedFiles'] ?? null) === 19
             && ($package['integrity']['inventoryComplete'] ?? null) === true,
-        'identity and sixteen-file integrity inventory are exact'
+        'identity and nineteen-file integrity inventory are exact'
     );
 
     $manifest = $package['manifest'];
@@ -206,6 +206,9 @@ try {
         'WompiNequiTransientWireRequestBuilder.php',
         'WompiTransactionResponseContainment.php',
         'WompiNoContactAttemptContract.php',
+        'WompiMerchantContractTransport.php',
+        'WompiMerchantContractTransportDouble.php',
+        'WompiMerchantContractRetrieval.php',
         'WompiNequiOfflineAdapter.php',
     ] as $file) {
         red_wompi_c2_package_assert(
@@ -248,8 +251,8 @@ try {
             && ($probe['success'] ?? null) === true
             && ($probe['reason'] ?? null) === 'completed'
             && ($probe['data']['contractVersion'] ?? null)
-                === 'colombia-c4b4a-v1'
-            && ($probe['data']['packageVersion'] ?? null) === '0.1.4'
+                === 'colombia-c4c1-v1'
+            && ($probe['data']['packageVersion'] ?? null) === '0.1.5'
             && ($probe['data']['merchantContractPreflightReady'] ?? null)
                 === true
             && ($probe['data']['twoContractConsentReady'] ?? null) === true
@@ -258,7 +261,10 @@ try {
             && ($probe['data']['responseContainmentReady'] ?? null) === true
             && ($probe['data']['noContactAttemptContractReady'] ?? null)
                 === true
-            && ($probe['data']['transportReady'] ?? null) === false
+            && ($probe['data']['merchantContractReadOnlyReady'] ?? null)
+                === true
+            && ($probe['data']['transactionTransportReady'] ?? null) === false
+            && ($probe['data']['transportReady'] ?? null) === true
             && ($probe['data']['secretResolution'] ?? null) === false
             && ($probe['data']['networkAccess'] ?? null) === false
             && ($probe['data']['providerContact'] ?? null) === false
@@ -352,6 +358,7 @@ try {
     }
 
     $source = '';
+    $transportSource = '';
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator(
             $fixturePackage,
@@ -360,7 +367,13 @@ try {
     );
     foreach ($iterator as $entry) {
         if ($entry->isFile()) {
-            $source .= (string) file_get_contents($entry->getPathname());
+            if ($entry->getFilename() === 'WompiMerchantContractTransport.php') {
+                $transportSource .= (string) file_get_contents(
+                    $entry->getPathname()
+                );
+            } else {
+                $source .= (string) file_get_contents($entry->getPathname());
+            }
         }
     }
     foreach ([
@@ -374,6 +387,21 @@ try {
             'package excludes primitive ' . $forbiddenPrimitive
         );
     }
+    red_wompi_c2_package_assert(
+        substr_count($transportSource, 'curl_exec(') === 1
+            && str_contains(
+                $transportSource,
+                "'https://sandbox.wompi.co/v1/merchants/"
+            ) === false
+            && str_contains($transportSource, 'sandbox\\.wompi\\.co')
+            && !str_contains($transportSource, 'CURLOPT_POST')
+            && !str_contains($transportSource, 'CURLOPT_CUSTOMREQUEST')
+            && !str_contains($transportSource, 'CURLOPT_FOLLOWLOCATION => true')
+            && !str_contains($transportSource, 'Authorization:')
+            && !str_contains($transportSource, 'sleep(')
+            && !str_contains($transportSource, 'usleep('),
+        'only the exact one-shot GET transport contains a network primitive'
+    );
     red_wompi_c2_package_assert(
         !preg_match(
             '/(?:prv|pub)_(?:test|prod)_[A-Za-z0-9]{8,}/',
