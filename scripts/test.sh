@@ -26,6 +26,9 @@ for file in \
     "$PROJECT_DIR/src/WompiMerchantContractTransportDouble.php" \
     "$PROJECT_DIR/src/WompiMerchantContractRetrieval.php" \
     "$PROJECT_DIR/src/WompiNequiOfflineAdapter.php" \
+    "$PROJECT_DIR/src/WompiEnvironment.php" \
+    "$PROJECT_DIR/src/WompiWebCheckoutPlanner.php" \
+    "$PROJECT_DIR/src/WompiEventVerifier.php" \
     "$PROJECT_DIR/package/addon.php" \
     "$PROJECT_DIR/package/WompiNequiRequestPlanner.php" \
     "$PROJECT_DIR/package/WompiNequiResponseGate.php" \
@@ -42,13 +45,17 @@ for file in \
     "$PROJECT_DIR/package/WompiMerchantContractTransportDouble.php" \
     "$PROJECT_DIR/package/WompiMerchantContractRetrieval.php" \
     "$PROJECT_DIR/package/WompiNequiOfflineAdapter.php" \
+    "$PROJECT_DIR/package/WompiEnvironment.php" \
+    "$PROJECT_DIR/package/WompiWebCheckoutPlanner.php" \
+    "$PROJECT_DIR/package/WompiEventVerifier.php" \
     "$PROJECT_DIR/tests/c2-offline-contract-self-test.php" \
     "$PROJECT_DIR/tests/c2-package-self-test.php" \
     "$PROJECT_DIR/tests/c4b1-merchant-contract-preflight-self-test.php" \
     "$PROJECT_DIR/tests/c4b2-consent-wire-preflight-self-test.php" \
     "$PROJECT_DIR/tests/c4b3-response-containment-self-test.php" \
     "$PROJECT_DIR/tests/c4b4a-no-contact-attempt-self-test.php" \
-    "$PROJECT_DIR/tests/c4c1-merchant-read-transport-self-test.php"
+    "$PROJECT_DIR/tests/c4c1-merchant-read-transport-self-test.php" \
+    "$PROJECT_DIR/tests/w1-web-checkout-self-test.php"
 do
     "$PHP_CLI" -l "$file"
 done
@@ -60,3 +67,4 @@ done
 "$PHP_CLI" "$PROJECT_DIR/tests/c4b3-response-containment-self-test.php"
 "$PHP_CLI" "$PROJECT_DIR/tests/c4b4a-no-contact-attempt-self-test.php"
 "$PHP_CLI" "$PROJECT_DIR/tests/c4c1-merchant-read-transport-self-test.php"
+"$PHP_CLI" "$PROJECT_DIR/tests/w1-web-checkout-self-test.php"
