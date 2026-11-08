@@ -30,6 +30,9 @@ for file in \
     "$PROJECT_DIR/src/WompiWebCheckoutPlanner.php" \
     "$PROJECT_DIR/src/WompiEventVerifier.php" \
     "$PROJECT_DIR/src/WompiEventIngressCoordinator.php" \
+    "$PROJECT_DIR/src/WompiTransactionLookupTransport.php" \
+    "$PROJECT_DIR/package/WompiEventIngressCoordinator.php" \
+    "$PROJECT_DIR/package/WompiTransactionLookupTransport.php" \
     "$PROJECT_DIR/package/addon.php" \
     "$PROJECT_DIR/package/WompiNequiRequestPlanner.php" \
     "$PROJECT_DIR/package/WompiNequiResponseGate.php" \
@@ -57,7 +60,8 @@ for file in \
     "$PROJECT_DIR/tests/c4b4a-no-contact-attempt-self-test.php" \
     "$PROJECT_DIR/tests/c4c1-merchant-read-transport-self-test.php" \
     "$PROJECT_DIR/tests/w1-web-checkout-self-test.php" \
-    "$PROJECT_DIR/tests/w3-event-ingress-self-test.php"
+    "$PROJECT_DIR/tests/w3-event-ingress-self-test.php" \
+    "$PROJECT_DIR/tests/w4-transaction-lookup-self-test.php"
 do
     "$PHP_CLI" -l "$file"
 done
@@ -71,3 +75,4 @@ done
 "$PHP_CLI" "$PROJECT_DIR/tests/c4c1-merchant-read-transport-self-test.php"
 "$PHP_CLI" "$PROJECT_DIR/tests/w1-web-checkout-self-test.php"
 "$PHP_CLI" "$PROJECT_DIR/tests/w3-event-ingress-self-test.php"
+"$PHP_CLI" "$PROJECT_DIR/tests/w4-transaction-lookup-self-test.php"

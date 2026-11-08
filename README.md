@@ -1,5 +1,9 @@
 # RED-CMS Store Lite Wompi Adapter
 
+> **0.4.0 (W4):** adds the bounded Sandbox-only transaction lookup GET the
+> W3 coordinator uses to confirm an event. See
+> [`docs/WOMPI-W4-TRANSACTION-LOOKUP.md`](docs/WOMPI-W4-TRANSACTION-LOOKUP.md).
+
 > **0.3.0 (W3):** adds the provider-events coordinator that turns one signed
 > Wompi delivery into a Store Lite payment event and the HTTP status Wompi
 > should receive. See [`docs/WOMPI-W3-EVENT-INGRESS.md`](docs/WOMPI-W3-EVENT-INGRESS.md).

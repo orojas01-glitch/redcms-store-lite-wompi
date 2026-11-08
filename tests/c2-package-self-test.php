@@ -114,10 +114,10 @@ try {
     );
     red_wompi_c2_package_assert(
         ($package['id'] ?? null) === $packageId
-            && ($package['manifest']['version'] ?? null) === '0.3.0'
+            && ($package['manifest']['version'] ?? null) === '0.4.0'
             && ($package['manifest']['type'] ?? null) === 'adapter'
-            && ($package['integrity']['declaredFiles'] ?? null) === 23
-            && ($package['integrity']['verifiedFiles'] ?? null) === 23
+            && ($package['integrity']['declaredFiles'] ?? null) === 24
+            && ($package['integrity']['verifiedFiles'] ?? null) === 24
             && ($package['integrity']['inventoryComplete'] ?? null) === true,
         'identity and twenty-two-file integrity inventory are exact'
     );
@@ -252,7 +252,7 @@ try {
             && ($probe['reason'] ?? null) === 'completed'
             && ($probe['data']['contractVersion'] ?? null)
                 === 'colombia-c4c1-v1'
-            && ($probe['data']['packageVersion'] ?? null) === '0.3.0'
+            && ($probe['data']['packageVersion'] ?? null) === '0.4.0'
             && ($probe['data']['merchantContractPreflightReady'] ?? null)
                 === true
             && ($probe['data']['twoContractConsentReady'] ?? null) === true
@@ -359,6 +359,7 @@ try {
 
     $source = '';
     $transportSource = '';
+    $lookupTransportSource = '';
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator(
             $fixturePackage,
@@ -369,6 +370,12 @@ try {
         if ($entry->isFile()) {
             if ($entry->getFilename() === 'WompiMerchantContractTransport.php') {
                 $transportSource .= (string) file_get_contents(
+                    $entry->getPathname()
+                );
+            } elseif ($entry->getFilename()
+                === 'WompiTransactionLookupTransport.php'
+            ) {
+                $lookupTransportSource .= (string) file_get_contents(
                     $entry->getPathname()
                 );
             } else {
@@ -401,6 +408,19 @@ try {
             && !str_contains($transportSource, 'sleep(')
             && !str_contains($transportSource, 'usleep('),
         'only the exact one-shot GET transport contains a network primitive'
+    );
+    red_wompi_c2_package_assert(
+        substr_count($lookupTransportSource, 'curl_exec(') === 1
+            && str_contains(
+                $lookupTransportSource,
+                'https:\\/\\/sandbox\\.wompi\\.co\\/v1\\/transactions\\/'
+            )
+            && !str_contains($lookupTransportSource, 'CURLOPT_POST')
+            && !str_contains($lookupTransportSource, 'CURLOPT_CUSTOMREQUEST')
+            && !str_contains($lookupTransportSource, 'CURLOPT_FOLLOWLOCATION => true')
+            && !str_contains($lookupTransportSource, 'Authorization:')
+            && !str_contains($lookupTransportSource, 'sleep('),
+        'the W4 transaction lookup is the only other network primitive'
     );
     red_wompi_c2_package_assert(
         !preg_match(

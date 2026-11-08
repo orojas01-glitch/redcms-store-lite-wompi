@@ -47,7 +47,7 @@ final class RED_CMS_Store_Lite_Wompi_Nequi_Offline_Adapter
             'currency' => 'COP',
             'environment' => 'sandbox',
             'initiationMode' => 'out_of_band_confirmation',
-            'packageVersion' => '0.3.0',
+            'packageVersion' => '0.4.0',
             'merchantContractPreflightReady' => true,
             'twoContractConsentReady' => true,
             'transientWirePreflightReady' => true,

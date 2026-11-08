@@ -1,13 +1,13 @@
 {
   "contractVersion": 1,
-  "status": "w3_event_ingress_offline",
+  "status": "w4_transaction_lookup_offline",
   "id": "redcms.store-lite-wompi",
   "name": "RED-CMS Store Lite Wompi",
   "repository": "redcms-store-lite-wompi",
   "manifest": {
     "schemaVersion": 1,
     "type": "adapter",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "cmsCompatibility": ">=5.1 <6.0",
     "phpCompatibility": ">=8.2 <9.0",
     "requiredDependency": {
@@ -22,7 +22,8 @@
       "operations": [
         "checkout.web.plan",
         "events.transaction-updated.verify",
-        "events.transaction-updated.coordinate"
+        "events.transaction-updated.coordinate",
+        "transactions.lookup-sandbox"
       ]
     }
   },
