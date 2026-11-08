@@ -21,6 +21,7 @@ require_once __DIR__ . '/WompiNequiOfflineAdapter.php';
 require_once __DIR__ . '/WompiEnvironment.php';
 require_once __DIR__ . '/WompiWebCheckoutPlanner.php';
 require_once __DIR__ . '/WompiEventVerifier.php';
+require_once __DIR__ . '/WompiEventIngressCoordinator.php';
 
 return static function ($registry): void {
     $registry->registerAdapter(
