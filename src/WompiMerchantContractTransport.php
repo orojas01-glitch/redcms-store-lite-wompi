@@ -49,7 +49,7 @@ final class RED_CMS_Store_Lite_Wompi_Merchant_Contract_Curl_Transport
                 'Accept: application/json',
                 'Connection: close',
             ],
-            CURLOPT_USERAGENT => 'RED-CMS-Wompi/0.2.0',
+            CURLOPT_USERAGENT => 'RED-CMS-Wompi/0.3.0',
             CURLOPT_HEADERFUNCTION => static function (
                 $curl,
                 $header

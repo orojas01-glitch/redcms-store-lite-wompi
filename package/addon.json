@@ -4,7 +4,7 @@
   "id": "redcms.store-lite-wompi",
   "name": "RED-CMS Store Lite Wompi",
   "description": "Separately distributed Wompi adapter for RED-CMS Store Lite, initially limited to Nequi and COP.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "adapter",
   "compatibility": {
     "cms": ">=5.1 <6.0",
@@ -93,7 +93,7 @@
     "files": [
       {
         "path": "addon.php",
-        "sha256": "3864ddee554ebb6d867b470379152bc9c073ffe45f8083702b39bdeb34c5a896"
+        "sha256": "a18591ad074717b6b2869146158753e58b5e6702349104c388b1678dd4a05ab5"
       },
       {
         "path": "WompiNequiRequestPlanner.php",
@@ -141,7 +141,7 @@
       },
       {
         "path": "WompiMerchantContractTransport.php",
-        "sha256": "9402897f3b741d35aa8bdb0092fc2569f4c08164292eea872233bf6807093be1"
+        "sha256": "7738101d440d9d6c7f7ec3b2f4addabf296345553280d6ee6624802d61d151c4"
       },
       {
         "path": "WompiMerchantContractTransportDouble.php",
@@ -153,7 +153,7 @@
       },
       {
         "path": "WompiNequiOfflineAdapter.php",
-        "sha256": "fbe47200f037f1556f56fa6bfb946f7acf930f898de4ac9f99938a6e03fb72fc"
+        "sha256": "dbb505bf1d6b52f1c37b44eeee4aac05e601a99b3855453263e93e4bc8ead7f8"
       },
       {
         "path": "WompiEnvironment.php",
@@ -168,8 +168,12 @@
         "sha256": "a541daf99d501d675c4d46d68afcd8013579d1067a64f3ad65b500e6aed277b6"
       },
       {
+        "path": "WompiEventIngressCoordinator.php",
+        "sha256": "913dd89445982ccbb93ba7e890794ab39b7161ef0c4f338b0e425d0d8301ea4f"
+      },
+      {
         "path": "identity.json",
-        "sha256": "ddb8ded285cb6c48628672d7fc9f67e75554dd71305d4a67749e6b70ff63c63c"
+        "sha256": "44d854638d8225cc874374c5c4faea741bd129336fe098438f4a9db4bfbd1682"
       },
       {
         "path": "migrations/2026-08-23-create-payment-attempts.sql",

@@ -1,5 +1,9 @@
 # RED-CMS Store Lite Wompi Adapter
 
+> **0.3.0 (W3):** adds the provider-events coordinator that turns one signed
+> Wompi delivery into a Store Lite payment event and the HTTP status Wompi
+> should receive. See [`docs/WOMPI-W3-EVENT-INGRESS.md`](docs/WOMPI-W3-EVENT-INGRESS.md).
+
 > **0.2.0 (W1):** the first launch now targets Wompi Web Checkout (hosted
 > page). This version adds an offline environment profile, a signed checkout
 > form planner and a Sandbox/production `transaction.updated` verifier. See
