@@ -114,12 +114,12 @@ try {
     );
     red_wompi_c2_package_assert(
         ($package['id'] ?? null) === $packageId
-            && ($package['manifest']['version'] ?? null) === '0.1.5'
+            && ($package['manifest']['version'] ?? null) === '0.2.0'
             && ($package['manifest']['type'] ?? null) === 'adapter'
-            && ($package['integrity']['declaredFiles'] ?? null) === 19
-            && ($package['integrity']['verifiedFiles'] ?? null) === 19
+            && ($package['integrity']['declaredFiles'] ?? null) === 22
+            && ($package['integrity']['verifiedFiles'] ?? null) === 22
             && ($package['integrity']['inventoryComplete'] ?? null) === true,
-        'identity and nineteen-file integrity inventory are exact'
+        'identity and twenty-two-file integrity inventory are exact'
     );
 
     $manifest = $package['manifest'];
@@ -252,7 +252,7 @@ try {
             && ($probe['reason'] ?? null) === 'completed'
             && ($probe['data']['contractVersion'] ?? null)
                 === 'colombia-c4c1-v1'
-            && ($probe['data']['packageVersion'] ?? null) === '0.1.5'
+            && ($probe['data']['packageVersion'] ?? null) === '0.2.0'
             && ($probe['data']['merchantContractPreflightReady'] ?? null)
                 === true
             && ($probe['data']['twoContractConsentReady'] ?? null) === true

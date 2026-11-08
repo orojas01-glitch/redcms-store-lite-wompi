@@ -1,5 +1,11 @@
 # RED-CMS Store Lite Wompi Adapter
 
+> **0.2.0 (W1):** the first launch now targets Wompi Web Checkout (hosted
+> page). This version adds an offline environment profile, a signed checkout
+> form planner and a Sandbox/production `transaction.updated` verifier. See
+> [`docs/WOMPI-W1-WEB-CHECKOUT.md`](docs/WOMPI-W1-WEB-CHECKOUT.md). The text
+> below describes the earlier Nequi API contracts, which remain unchanged.
+
 This repository is the separately distributed Wompi payment adapter candidate
 for RED-CMS Store Lite. Version `0.1.5` adds the C4C1 implementation of one
 bounded read-only Sandbox merchant-contract retrieval while preserving the
